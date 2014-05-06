@@ -123,3 +123,7 @@ export EDITOR=vim
 
 export UNI=mzeller@x08.informatik.uni-bremen.de
 export GMOD=/media/ssd1/steam/SteamApps/common/GarrysMod/garrysmod
+
+if [ -f ~/.bashrc.local ]; then
+	~/.bashrc.local
+fi
