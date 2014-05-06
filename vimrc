@@ -18,17 +18,10 @@ let g:clang_complete_auto_select = 1
 let g:clang_complete_copen = 1
 let g:clang_complete_periodic_quickfix = 0
 set completeopt=menu,menuone,longest
-let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
 
 nmap <f5> :call g:ClangUpdateQuickFix()<CR>
 nmap <f7> :make
-
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
+set ambiwidth=single
 set laststatus=2
 set term=xterm-256color
 set t_ut=
@@ -54,6 +47,7 @@ syntax enable
 colorscheme molokai
 set background=dark
 
+set fillchars+=stl:\ ,stlnc:\
 set encoding=utf8
 set ffs=unix,dos,mac
 
@@ -126,6 +120,3 @@ inoremap <silent> <C-w> <ESC>:update<CR>i
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 map <leader>f <ESC>:NERDTreeToggle<CR>
-
-noremap <S-TAB> <TAB>
-inoremap <S-TAB> <TAB>

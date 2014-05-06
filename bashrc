@@ -115,6 +115,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -d $HOME/bin ]; then
+	export PATH="$HOME/bin:$PATH"
+fi
+
 export EDITOR=vim
 
 export UNI=mzeller@x08.informatik.uni-bremen.de
