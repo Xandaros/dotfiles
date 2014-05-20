@@ -2,10 +2,6 @@
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
-[submodule "vim/bundle/clang_complete"]
-	path = vim/bundle/clang_complete
-	url = https://github.com/Rip-Rip/clang_complete.git
-	branch = master
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
@@ -34,3 +30,6 @@
 	path = vim/bundle/powerline
 	url = https://github.com/Lokaltog/powerline.git
 	branch = develop
+[submodule "vim/bundle/matchem"]
+	path = vim/bundle/matchem
+	url = git@github.com:ervandew/matchem.git
