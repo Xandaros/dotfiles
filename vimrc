@@ -114,9 +114,6 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
-nnoremap <silent> <C-w> :update<CR>
-inoremap <silent> <C-w> <ESC>:update<CR>i
-
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 map <leader>f <ESC>:NERDTreeToggle<CR>
