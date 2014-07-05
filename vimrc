@@ -20,7 +20,8 @@ let g:clang_complete_periodic_quickfix = 0
 set completeopt=menu,menuone,longest
 
 nmap <f5> :call g:ClangUpdateQuickFix()<CR>
-nmap <f7> :make
+nmap <f7> mz:silent make<cr>`z
+imap <f7> <esc>mz:w<cr>:silent make<cr>`zi
 set ambiwidth=single
 set laststatus=2
 set term=xterm-256color
@@ -117,3 +118,5 @@ map <leader>s? z=
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 map <leader>f <ESC>:NERDTreeToggle<CR>
+
+map ´ `
