@@ -10,16 +10,6 @@ let mapleader = ","
 set cursorline
 set rnu
 
-set makeprg=autoreconf\ -i\ &&\ ./configure\ &&\ make
-
-"Autocomplete options
-let g:clang_complete_complete_auto = 1
-let g:clang_complete_auto_select = 1
-let g:clang_complete_copen = 1
-let g:clang_complete_periodic_quickfix = 0
-set completeopt=menu,menuone,longest
-
-nmap <f5> :call g:ClangUpdateQuickFix()<CR>
 nmap <f7> mz:silent make<cr>`z
 imap <f7> <esc>mz:w<cr>:silent make<cr>`zi
 set ambiwidth=single
@@ -27,37 +17,41 @@ set laststatus=2
 set term=xterm-256color
 set t_ut=
 
-set hid
+set hidden "Allows buffers to be hidden
+
+"Search options
 set ignorecase
-set smartcase
+set smartcase "If and only if search contains uppercase characters, search case sensitive. Requires ignorecase
+set hlsearch "Highlight search results
+set incsearch "Start searching while typing
 
-set hlsearch
-set incsearch
-set showmatch
+set lazyredraw "Buffer screen updates. Makes scrolling a lot faster
 
-set lazyredraw
 set magic
 
-
+"Disable beeps and flashes
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
 
-syntax enable
-colorscheme molokai
-set background=dark
+syntax enable "Turn on syntax highlighting
+colorscheme molokai "Set colour scheme
+set background=dark "Use bright colourset for syntax highlighting
 
 set fillchars+=stl:\ ,stlnc:\
-set encoding=utf8
-set ffs=unix,dos,mac
 
-set nobackup
-set nowb
-set noswapfile
+set encoding=utf8 "Use utf8 encoding
+set ffs=unix,dos,mac "Line ending preference
 
-set mouse=n
+set nobackup "Don't create temporary files
+set nowb "Don't make a backup before overwriting
+set noswapfile "Don't make a swp file (contains info in case vim crashes, like undo-history)
 
+set mouse=n "Enable mouse in normal mode
+
+"Remap up/down arrows to move lines
+"TODO: Improve
 nnoremap <UP> ddkP
 nnoremap <DOWN> ddp
 inoremap <UP> <ESC>ddkPi
@@ -65,38 +59,7 @@ inoremap <DOWN> <ESC>ddpi
 vnoremap <UP> <ESC>ddkPv
 vnoremap <DOWN> <ESC>ddpv
 
-
-nnoremap <LEFT> <ESC>:tabprevious<CR>
-nnoremap <RIGHT> <ESC>:tabnext<CR>
-inoremap <LEFT> <ESC>:tabprevious<CR>
-inoremap <RIGHT> <ESC>:tabnext<CR>
-vnoremap <LEFT> <ESC>:tabprevious<CR>
-vnoremap <RIGHT> <ESC>:tabnext<CR>
-vnoremap <silent> * :call VisualSelection('f')
-vnoremap <silent> # :call VisualSelection('b')
-
-imap <C-y> <ESC>
-vmap <C-y> <ESC>
-"map j gjzz
-"map k gkzz
-
-map <space> /
-map <c-space> ?
-
-map <silent> <leader><cr> :nohl<cr>
-
-nnoremap <M-up> <C-W>k
-nnoremap <M-down> <C-W>j
-nnoremap <M-left> <C-W>h
-nnoremap <M-right> <C-W>l
-
-map <leader>c :close<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-
-noremap <leader>tn <ESC>:tabnew<cr>
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
+"Remal Ctrl+/h/j/k/l to move lines
 nmap <C-k> ddkP
 nmap <C-j> ddp
 imap <C-k> <ESC>ddkkpi
@@ -104,19 +67,38 @@ imap <C-j> <ESC>ddpi
 vmap <C-k> <ESC>ddkkpv
 vmap <C-j> <ESC>ddpv
 
+"Remap left/right arrow keys to switch tabs
+nnoremap <LEFT> <ESC>:tabprevious<CR>
+nnoremap <RIGHT> <ESC>:tabnext<CR>
+inoremap <LEFT> <ESC>:tabprevious<CR>
+inoremap <RIGHT> <ESC>:tabnext<CR>
+vnoremap <LEFT> <ESC>:tabprevious<CR>
+vnoremap <RIGHT> <ESC>:tabnext<CR>
+
+"Map Ctrl+y to go back to normal mode
+imap <C-y> <ESC>
+vmap <C-y> <ESC>
+
+"Use space in normal mode to quickly start a search
+nmap <space> /
+
+"<leader><cr> to get rid of search highlights
+map <silent> <leader><cr> :nohl<cr>
+
+"Quickfix window bindings
 map <leader>cw :cw<cr>
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
+"Use <leader>ss to toggle spellcheck
 map <leader>ss :setlocal spell!<cr>
 
+"Spellcheck bindings
 map <leader>sn ]s
 map <leader>sp [s
-map <leader>sa zg
 map <leader>s? z=
 
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
+"Use <leader>f to open NERDTree
 map <leader>f <ESC>:NERDTreeToggle<CR>
 
 map ´ `
