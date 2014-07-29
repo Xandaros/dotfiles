@@ -18,6 +18,9 @@ set term=xterm-256color
 set t_ut=
 
 set hidden "Allows buffers to be hidden
+set wildmenu "Enables menu for autocompletion
+set wildchar=<TAB>
+set wildmode=full
 
 "Search options
 set ignorecase
