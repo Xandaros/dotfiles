@@ -119,6 +119,11 @@ if [ -d $HOME/bin ]; then
 	export PATH="$HOME/bin:$PATH"
 fi
 
+# Markdown viewing
+function md(){
+	markdown $1 | w3m -T text/html
+}
+
 export EDITOR=vim
 
 export UNI=mzeller@x08.informatik.uni-bremen.de
