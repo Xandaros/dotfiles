@@ -1,5 +1,5 @@
 #!/bin/bash
-FILES="bashrc vimrc vim"
+FILES="bashrc vimrc vim w3m"
 
 mkdir -p ~/dotfiles_old
 cd ~/dotfiles
