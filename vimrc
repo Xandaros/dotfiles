@@ -32,6 +32,8 @@ set lazyredraw "Buffer screen updates. Makes scrolling a lot faster
 
 set magic
 
+set modeline
+
 "Disable beeps and flashes
 set noerrorbells
 set novisualbell
