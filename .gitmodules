@@ -33,3 +33,4 @@
 [submodule "vim/bundle/matchem"]
 	path = vim/bundle/matchem
 	url = git@github.com:ervandew/matchem.git
+	branch = master
