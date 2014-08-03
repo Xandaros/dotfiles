@@ -4,7 +4,7 @@
 	branch = master
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
+	url = git@github.com:Xandaros/vim-snippets.git
 	branch = master
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
