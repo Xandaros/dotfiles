@@ -1,0 +1,40 @@
+snippet once "Include guard" b
+#IFNDEF ${1:_`!v substitute(toupper(bufname("%")), "\\.", "_", "g")`}
+#DEFINE $1
+
+${VISUAL}$0
+
+#ENDIF /* $1 */
+endsnippet
+
+snippet fun "Function" b
+${1:int} ${2:main}($3)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fp "Function prototype" b
+${1:int} ${2:main}($3);
+endsnippet
+
+snippet if "condition check" b
+if ($1)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet for "For-loop" b
+for (${1:int} ${2:i} = ${3:0}; $2 ${4:<} ${5:10}; ${6:++}$1)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet wh "While-loop" b
+while ($1)
+{
+	${VISUAL}$0
+}
+endsnippet

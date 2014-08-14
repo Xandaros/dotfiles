@@ -2,10 +2,6 @@
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
-[submodule "vim/bundle/vim-snippets"]
-	path = vim/bundle/vim-snippets
-	url = git@github.com:Xandaros/vim-snippets.git
-	branch = master
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai
@@ -22,10 +18,6 @@
 	path = vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 	branch = master
-[submodule "vim/bundle/vim-snipmate"]
-	path = vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-	branch = master
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = https://github.com/Lokaltog/powerline.git
@@ -33,4 +25,8 @@
 [submodule "vim/bundle/matchem"]
 	path = vim/bundle/matchem
 	url = git@github.com:ervandew/matchem.git
+	branch = master
+[submodule "vim/bundle/UltiSnips"]
+	path = vim/bundle/UltiSnips
+	url = git@github.com:SirVer/ultisnips.git
 	branch = master
