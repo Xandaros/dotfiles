@@ -127,10 +127,9 @@ function md(){
 export EDITOR=vim
 
 export UNI=mzeller@x08.informatik.uni-bremen.de
-export GMOD=/media/ssd1/steam/SteamApps/common/GarrysMod/garrysmod
 
 alias inp='ssh -p 978 xandaros@inp.io'
 
 if [ -f ~/.bashrc.local ]; then
-	~/.bashrc.local
+	source ~/.bashrc.local
 fi
