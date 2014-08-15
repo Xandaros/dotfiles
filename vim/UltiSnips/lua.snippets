@@ -29,7 +29,9 @@ function $1:constructor(${3:constructorArgs})
 args = string.split(t[3], ", ")
 snip.rv = ""
 for param in args:
-	snip.rv += "self." + param + " = " + param + "\n\t"
+	if param != "":
+		param = param.strip()
+		snip.rv += "self." + param + " = " + param + "\n\t"
 snip.rv = snip.rv[:-2]
 	`
 	$0
