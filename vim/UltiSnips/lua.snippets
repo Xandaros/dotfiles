@@ -21,7 +21,7 @@ require("`!p snip.rv = incpath`")
 $0
 endsnippet
 
-snippet class "Starfall class" b
+snippet class "Starfall class"
 ${1:ClassName} = Class("$1", ${2:superclasses})
 
 function $1:constructor(${3:constructorArgs})
@@ -36,7 +36,7 @@ snip.rv = snip.rv[:-2]
 end
 endsnippet
 
-snippet fun "Function" b
+snippet fun "Function"
 function ${1:name}(${2:args})
 	${VISUAL}$0
 end
@@ -78,4 +78,18 @@ function ${1:Object}:get${2/(.*)/\u$1/}()
 	return self.${2:attrib}
 end
 $0
+endsnippet
+
+snippet afun "Anonymous function" i
+function()
+	$0
+end
+endsnippet
+
+snippet vec2 "Vector2D" i
+Vector2D(${1:x}, ${2:y})
+endsnippet
+
+snippet hook "Starfall hook" b
+hook.add("${1:event}", "${2:identifier}", ${3:function})
 endsnippet
