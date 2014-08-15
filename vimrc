@@ -34,6 +34,8 @@ set magic
 
 set modeline
 
+set foldmethod=syntax
+
 "UltiSnip options
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
