@@ -42,6 +42,11 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
+"YCM options
+let g:ycm_key_list_previous_completion=['<UP>', '<C-K>']
+let g:ycm_key_list_select_completion=['<DOWN>', '<C-j>']
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+
 "Disable beeps and flashes
 set noerrorbells
 set novisualbell
@@ -115,3 +120,5 @@ map <leader>s? z=
 map <leader>f <ESC>:NERDTreeToggle<CR>
 
 map ´ `
+
+command CleatLocList call setloclist(0, [])
