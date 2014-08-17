@@ -1,0 +1,6 @@
+URxvt*.depth: 32
+URxvt*.background: [80]#000000
+URxvt*.foreground: #ffffff
+URxvt*.scrollstyle: plain
+URxvt*.scrollBar: false
+URxvt*.saveLines: 8192
