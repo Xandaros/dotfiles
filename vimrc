@@ -47,6 +47,9 @@ let g:ycm_key_list_previous_completion=['<UP>', '<C-K>']
 let g:ycm_key_list_select_completion=['<DOWN>', '<C-j>']
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "dark"
+
 "Disable beeps and flashes
 set noerrorbells
 set novisualbell
