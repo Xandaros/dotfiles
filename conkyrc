@@ -34,5 +34,5 @@ $else
 $endif
 { "full_text": "Home: ${fs_free /home}", "color": "\#ffffff"},
 { "full_text": "Root: ${fs_free /}", "color": "\#ffffff"},
-{ "full_text": "${exec date +%H:%M:%S}", "color": "\#ffffff" }
+{ "full_text": "${exec date +'%d.%m.%Y %H:%M:%S'}", "color": "\#ffffff" }
 ],
