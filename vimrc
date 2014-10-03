@@ -50,6 +50,9 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "dark"
 
+"Eclim options
+let g:EclimCompletionMethod = 'omnifunc'
+
 "Disable beeps and flashes
 set noerrorbells
 set novisualbell
