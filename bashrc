@@ -121,7 +121,7 @@ fi
 
 # Markdown viewing
 function md(){
-	markdown $1 | w3m -T text/html
+	marked <$1 | w3m -T text/html
 }
 
 export EDITOR=vim
