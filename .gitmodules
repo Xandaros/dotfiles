@@ -34,3 +34,6 @@
 	path = vim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
 	branch = master
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = git@github.com:godlygeek/tabular.git
