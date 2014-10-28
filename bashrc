@@ -128,7 +128,7 @@ export EDITOR=vim
 
 export UNI=mzeller@x08.informatik.uni-bremen.de
 
-alias inp='ssh -p 978 xandaros@inp.io'
+alias inp='mosh inp.io --ssh "ssh -p 978" --server "LANG=en_US.UTF-8 mosh-server"'
 
 if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
