@@ -121,7 +121,7 @@ fi
 
 # Markdown viewing
 function md(){
-	marked <$1 | w3m -T text/html
+	marked --gfm --breaks --tables <$1 | w3m -T text/html
 }
 
 export EDITOR=vim
