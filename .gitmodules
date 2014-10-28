@@ -37,3 +37,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git@github.com:godlygeek/tabular.git
+[submodule "vim/bundle/neco-ghc"]
+	path = vim/bundle/neco-ghc
+	url = git@github.com:eagletmt/neco-ghc.git
