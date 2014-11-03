@@ -35,6 +35,7 @@ set magic
 set modeline
 
 set foldmethod=syntax
+set foldlevelstart=1
 
 "UltiSnip options
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -46,6 +47,8 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ycm_key_list_previous_completion=['<UP>', '<C-K>']
 let g:ycm_key_list_select_completion=['<DOWN>', '<C-j>']
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let $PATH=$PATH . ':/home/xandaros/.cabal/bin'
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "dark"
