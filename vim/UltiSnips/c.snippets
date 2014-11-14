@@ -38,3 +38,16 @@ while ($1)
 	${VISUAL}$0
 }
 endsnippet
+
+snippet struct "Struct" b
+typedef struct ${1:name}
+{
+	${VISUAL}$0
+} $1_t;
+endsnippet
+
+snippet block "Adds a block" b
+{
+	${VISUAL}$0
+}
+endsnippet
