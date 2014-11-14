@@ -37,6 +37,9 @@ set modeline
 set foldmethod=syntax
 set foldlevelstart=1
 
+set tabstop=4
+set shiftwidth=4
+
 "UltiSnip options
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
