@@ -118,6 +118,9 @@ fi
 if [ -d $HOME/bin ]; then
 	export PATH="$HOME/bin:$PATH"
 fi
+if [ -d $HOME/.cabal/bin ]; then
+	export PATH="$HOME/.cabal/bin:$PATH"
+fi
 
 # Markdown viewing
 function md(){
