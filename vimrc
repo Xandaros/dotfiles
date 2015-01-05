@@ -10,6 +10,8 @@ let mapleader = ","
 set cursorline
 set rnu
 
+set colorcolumn=81
+
 nmap <f7> mz:silent make<cr>`z
 imap <f7> <esc>mz:w<cr>:silent make<cr>`zi
 set ambiwidth=single
