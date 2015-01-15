@@ -72,6 +72,15 @@ function md(){
 	marked --gfm --breaks --tables <$1 | w3m -T text/html
 }
 
+# Directory copying
+function copyd(){
+	pwd | xsel -s
+}
+
+function pasted(){
+	cd `xsel -o -s`
+}
+
 export EDITOR=vim
 
 alias inp='mosh inp.io --ssh "ssh -p 978" --server "LANG=en_US.UTF-8 mosh-server"'
