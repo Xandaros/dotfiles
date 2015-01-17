@@ -1,6 +1,6 @@
-snippet begin "Begin" b
+snippet begin "Begin" i
 \begin{${1:class}}
-	$0
+	$0${VISUAL}
 \end{$1}
 endsnippet
 
@@ -16,4 +16,8 @@ snippet isec "isec" b
 ${VISUAL}$0
 
 \end{document}
+endsnippet
+
+snippet m "Set" i
+\\{$1\\}$0
 endsnippet
