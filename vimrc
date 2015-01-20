@@ -13,14 +13,12 @@ set rnu
 set colorcolumn=81
 
 nmap <f7> mz:silent make<cr>`z
-imap <f7> <esc>mz:w<cr>:silent make<cr>`zi
 set ambiwidth=single
 set laststatus=2
-set term=xterm-256color
 set t_ut=
 
 set hidden "Allows buffers to be hidden
-set wildmenu "Enables menu for autocompletion
+set wildmenu "Enables menu for auto completion
 set wildchar=<TAB>
 set wildmode=full
 
@@ -69,16 +67,16 @@ set tm=500
 
 syntax enable "Turn on syntax highlighting
 colorscheme molokai "Set colour scheme
-set background=dark "Use bright colourset for syntax highlighting
+set background=dark "Use bright colour set for syntax highlighting
 
 set fillchars+=stl:\ ,stlnc:\
 
 set encoding=utf8 "Use utf8 encoding
 set ffs=unix,dos,mac "Line ending preference
 
-set nobackup "Don't create temporary files
-set nowb "Don't make a backup before overwriting
-set noswapfile "Don't make a swp file (contains info in case vim crashes, like undo-history)
+" set nobackup "Don't create temporary files
+" set nowb "Don't make a backup before overwriting
+" set noswapfile "Don't make a swp file (contains info in case vim crashes, like undo-history)
 
 set mouse=n "Enable mouse in normal mode
 
@@ -107,25 +105,16 @@ inoremap <RIGHT> <ESC>:tabnext<CR>
 vnoremap <LEFT> <ESC>:tabprevious<CR>
 vnoremap <RIGHT> <ESC>:tabnext<CR>
 
-"Map Ctrl+y to go back to normal mode
-imap <C-y> <ESC>
-vmap <C-y> <ESC>
-
 "Use space in normal mode to quickly start a search
 nmap <space> /
 
 "<leader><cr> to get rid of search highlights
 map <silent> <leader><cr> :nohl<cr>
 
-"Quickfix window bindings
-map <leader>cw :cw<cr>
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
-
-"Use <leader>ss to toggle spellcheck
+"Use <leader>ss to toggle spell check
 map <leader>ss :setlocal spell!<cr>
 
-"Spellcheck bindings
+"Spell check bindings
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>s? z=
@@ -135,4 +124,4 @@ map <leader>f <ESC>:NERDTreeToggle<CR>
 
 map ´ `
 
-command CleatLocList call setloclist(0, [])
+command ClearLocList call setloclist(0, [])
