@@ -9,10 +9,10 @@ set mail_check=120
 
 set crypt_verify_sig=yes
 set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
-# set pgp_verify_command="gpg --no-verbose --batch --output - --verify %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
 # set pgp_decrypt_command="gpg --no-verbose --passphrase-fd 0 --batch --output - %f"
-set pgp_sign_command="gpg --no-verbose --sign --armor --batch --output - --passphrase-fd 0 %f"
-set pgp_good_sign="^gpg:Good signature from"
+set pgp_sign_command="gpg --no-verbose --sign --detach-sign --armor --batch --textmode --output - %f"
+#set pgp_good_sign="^gpg:Good signature from"
 set pgp_verify_sig=yes
 set pgp_sign_as=17987EAC
 message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
