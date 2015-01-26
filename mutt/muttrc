@@ -4,6 +4,9 @@ source ~/.mutt/addresses
 set header_cache=~/.cache/mutt
 set quit=ask-yes # f-ing ask before quitting...
 
+set sort=threads
+set sort_aux=last-date-received
+
 unset imap_passive
 set imap_keepalive=300
 set mail_check=120
