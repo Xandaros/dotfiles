@@ -123,5 +123,8 @@ map <leader>s? z=
 map <leader>f <ESC>:NERDTreeToggle<CR>
 
 map ´ `
+command W w
+command Wq wq
+command WQ wq
 
 command ClearLocList call setloclist(0, [])
