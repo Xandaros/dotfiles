@@ -2,6 +2,7 @@ source /etc/Muttrc.gpg.dist
 source ~/.mutt/addresses
 
 set header_cache=~/.cache/mutt
+set quit=ask-yes # f-ing ask before quitting...
 
 unset imap_passive
 set imap_keepalive=300
