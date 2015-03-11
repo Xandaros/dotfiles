@@ -27,7 +27,6 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -56,4 +55,8 @@ alias inp='mosh inp.io --ssh "ssh -p 978" --server "LANG=en_US.UTF-8 mosh-server
 
 if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
+fi
+
+if [ -z "$NOFISH" ]; then
+	exec fish
 fi
