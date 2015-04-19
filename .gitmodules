@@ -54,3 +54,7 @@
 	path = vim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
 	branch = master
+[submodule "vim/bundle/LaTeX-Box"]
+	path = vim/bundle/LaTeX-Box
+	url = git@github.com:LaTeX-Box-Team/LaTeX-Box.git
+	branch = master
