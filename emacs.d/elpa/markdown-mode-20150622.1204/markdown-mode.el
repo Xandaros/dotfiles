@@ -29,7 +29,7 @@
 ;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
 ;; Created: May 24, 2007
 ;; Version: 2.0
-;; Package-Version: 20150606.2129
+;; Package-Version: 20150622.1204
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
 
@@ -2255,9 +2255,10 @@ example, when a reference label is already defined)."
 (defun markdown-insert-reference-link-dwim ()
   "Insert a reference link of the form [text][label] at point.
 If there is an active region, the text in the region will be used
-as the link text.  If the point is at a word, it will be used as
-the link text.  Otherwise, the link text will be read from the
-minibuffer.  The link label will be read from the minibuffer in
+as the link text.  If the point is at an inline link, it will be
+converted to a reference link.  If the point is at a word, it will
+be used as the link text.  Otherwise, the link text will be read from
+the minibuffer.  The link label will be read from the minibuffer in
 both cases, with completion from the set of currently defined
 references.  To create an implicit reference link, press RET to
 accept the default, an empty label.  If the entered referenced
@@ -2267,20 +2268,29 @@ location determined by `markdown-reference-location'."
   (interactive)
   (let* ((defined-labels (mapcar (lambda (x) (substring x 1 -1))
                                  (markdown-get-defined-references)))
-         (bounds (or (and (markdown-use-region-p)
-                          (cons (region-beginning) (region-end)))
-                     (markdown-bounds-of-thing-at-point 'word)))
-         (text (if bounds
-                   (buffer-substring (car bounds) (cdr bounds))
-                 (read-string "Link Text: ")))
+         (switch (thing-at-point-looking-at markdown-regex-link-inline))
+         (bounds (cond ((markdown-use-region-p)
+                        (cons (region-beginning) (region-end)))
+                       (switch
+                        (cons (match-beginning 0) (match-end 0)))
+                       (t
+                        (markdown-bounds-of-thing-at-point 'word))))
+         (text (cond (switch (match-string 3))
+                     (bounds (buffer-substring (car bounds) (cdr bounds)))
+                     (t (read-string "Link Text: "))))
          (label (completing-read
                  "Link Label (default: none): " defined-labels
                  nil nil nil 'markdown-reference-label-history nil))
-         (ref (markdown-reference-definition
-               (concat "[" (if (> (length label) 0) label text) "]")))
-         (url (unless ref (read-string "Link URL: ")))
-         (title (when (> (length url) 0)
-                  (read-string "Link Title (optional): "))))
+         (ref (save-match-data
+                (markdown-reference-definition
+                 (concat "[" (if (> (length label) 0) label text) "]"))))
+         (url (cond (ref nil)
+                    (switch (match-string 5))
+                    (t (read-string "Link URL: "))))
+         (title (cond
+                 ((= (length url) 0) nil)
+                 (switch (substring (match-string 6) 1 -1))
+                 (t (read-string "Link Title (optional): ")))))
     (when bounds (delete-region (car bounds) (cdr bounds)))
     (markdown-insert-reference-link text label url title)))
 
@@ -3316,11 +3326,11 @@ Assumes match data is available for `markdown-regex-italic'."
     (define-key map (kbd "C-c C-c n") 'markdown-cleanup-list-numbers)
     (define-key map (kbd "C-c C-c ]") 'markdown-complete-buffer)
     ;; List editing
-    (define-key map (kbd "M-<up>") 'markdown-move-up)
-    (define-key map (kbd "M-<down>") 'markdown-move-down)
-    (define-key map (kbd "M-<left>") 'markdown-promote)
-    (define-key map (kbd "M-<right>") 'markdown-demote)
-    (define-key map (kbd "M-<return>") 'markdown-insert-list-item)
+    (define-key map (kbd "M-k") 'markdown-move-up)
+    (define-key map (kbd "M-j") 'markdown-move-down)
+    (define-key map (kbd "M-h") 'markdown-promote)
+    (define-key map (kbd "M-l") 'markdown-demote)
+    (define-key map (kbd "M-RET") 'markdown-insert-list-item)
     ;; Movement
     (define-key map (kbd "M-{") 'markdown-backward-paragraph)
     (define-key map (kbd "M-}") 'markdown-forward-paragraph)
