@@ -97,4 +97,14 @@
 (autoload 'markdown-mode "markdown-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; Enable certain disabled commands
+(put 'narrow-to-region 'disabled nil)
+
+;; Turn off the beeping
+(setq ring-bell-function 'ignore)
+
+;; Relative line numbers
+(require 'linum-relative)
+(global-linum-mode)
+
 ;;; .emacs ends here
