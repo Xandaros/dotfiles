@@ -107,4 +107,6 @@
 (require 'linum-relative)
 (global-linum-mode)
 
+;; Newline at end of file
+(setq require-final-newline)
 ;;; .emacs ends here
