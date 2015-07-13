@@ -109,4 +109,8 @@
 
 ;; Newline at end of file
 (setq require-final-newline)
+
+;; Snippets
+(yas-global-mode)
+
 ;;; .emacs ends here
