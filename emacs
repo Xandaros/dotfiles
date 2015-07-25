@@ -110,6 +110,9 @@
 ;; Turn off the beeping
 (setq ring-bell-function 'ignore)
 
+;; Format to 80 columns when pressing M-q (who uses 70 columns, anyway?)
+(setq fill-column 80)
+
 ;; Relative line numbers
 (require 'linum-relative)
 (global-linum-mode)
@@ -118,6 +121,15 @@
 (setq require-final-newline)
 
 ;; Snippets
-(yas-global-mode)
+(yas-global-mode 1)
+
+;; Latex
+(require 'tex)
+(require 'company-auctex)
+(add-hook 'LaTeX-mode-hook (lambda()
+			     (company-auctex-init)
+			     (latex-preview-pane-mode)
+			     (column-marker-1 81)
+			     ))
 
 ;;; .emacs ends here
