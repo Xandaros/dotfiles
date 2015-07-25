@@ -70,7 +70,7 @@
 
 ;; Flycheck
 (require 'flycheck)
-; (global-flycheck-mode t)
+(global-flycheck-mode t)
 
 ;; Show matching parens
 (show-paren-mode t)
@@ -88,11 +88,17 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Haskell
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(require 'haskell-mode)
+(require 'flycheck-ghcmod)
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda() (ghc-init)))
 (add-to-list 'company-backends 'company-ghc)
+(add-hook 'haskell-mode-hook (lambda()
+			       (turn-on-haskell-indentation)
+			       (haskell-doc-mode)
+			       (setq haskell-doc-show-global-types t)
+			       ))
 
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode" nil t)
