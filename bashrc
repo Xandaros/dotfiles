@@ -49,9 +49,10 @@ function pasted(){
 	cd `xsel -o -s`
 }
 
-export EDITOR=vim
+export EDITOR=nvim
 
 alias inp='mosh inp.io --ssh "ssh -p 978" --server "LANG=en_US.UTF-8 mosh-server"'
+alias vim='nvim'
 
 if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
