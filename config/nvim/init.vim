@@ -93,6 +93,9 @@ let g:airline_theme = "dark"
 "Eclim options
 "let g:EclimCompletionMethod = 'omnifunc'
 
+"LaTeX options
+let g:tex_flavor = "latex"
+
 "Disable beeps and flashes
 set noerrorbells
 set novisualbell
