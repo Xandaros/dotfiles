@@ -165,7 +165,7 @@ noremap gV `[V`]
 
 onoremap af :<C-u>normal! ggVG<CR>
 
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :MundoToggle<CR>
 
 map ´ `
 command W w
