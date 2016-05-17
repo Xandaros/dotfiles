@@ -16,6 +16,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'tomtom/quickfixsigns_vim'
+Plugin 'tpope/vim-speeddating'
 Plugin 'benekastah/neomake'
 
 call vundle#end()
