@@ -161,12 +161,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown, (t) toggle touchpad
+set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown, (t) toggle touchpad, (m) suspend
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3lock, mode "default"
 	bindsym e exec --no-startup-id i3-msg exit, mode "default"
 	bindsym r exec --no-startup-id systemctl reboot, mode "default"
 	bindsym s exec --no-startup-id systemctl poweroff, mode "default"
+	bindsym m exec --no-startup-id systemctl suspend, mode "default"
 	bindsym t exec --no-startup-id $HOME/bin/touchpadToggle, mode "default"
 
 	bindsym Return mode "default"
