@@ -67,6 +67,9 @@ set foldlevelstart=1
 set tabstop=4
 set shiftwidth=4
 
+set undofile
+set undodir=~/.config/nvim/undo
+
 "UltiSnip options
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
