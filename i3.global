@@ -179,6 +179,9 @@ bindsym $mod+u exec --no-startup-id i3-msg rename workspace to $(dmenu </dev/nul
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 
+bindsym $mod+Up move workspace to output right
+bindsym $mod+Down move workspace to output left
+
 bindsym $mod+m exec --no-startup-id i3-msg workspace $(i3-msg -t get_workspaces | jq -r ".[]|select(.visible|not)|.name" | dmenu)
 bindsym $mod+Shift+m exec --no-startup-id i3-msg move window to workspace $(i3-msg -t get_workspaces | jq -r ".[]|select(.visible|not)|.name" | dmenu)
 
