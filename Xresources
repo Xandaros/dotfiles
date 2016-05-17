@@ -3,7 +3,7 @@ URxvt*.background: [80]#000000
 URxvt*.foreground: #ffffff
 URxvt*.scrollstyle: plain
 URxvt*.scrollBar: false
-URxvt*.font: xft:Terminus:pixelsize=12
+URxvt*.font: xft:terminus:pixelsize=15:antialias=false
 URxvt*.saveLines: 8192
 URxvt*.perl-ext-common: default,url-select
 URxvt*.keysym.M-u: perl:url-select:select_next
