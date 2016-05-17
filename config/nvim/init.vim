@@ -20,6 +20,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'benekastah/neomake'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'vim-scripts/ReplaceWithRegister'
 
 call vundle#end()
 
