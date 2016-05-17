@@ -22,6 +22,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'christoomey/vim-sort-motion'
+Plugin 'wellle/targets.vim'
 
 call vundle#end()
 
@@ -157,6 +158,8 @@ nnoremap <leader>cv :cnext<cr>
 
 "Use <leader>f to open NERDTree
 "map <leader>f <ESC>:NERDTreeToggle<CR>
+
+onoremap af :<C-u>normal! ggVG<CR>
 
 nnoremap <F5> :GundoToggle<CR>
 
