@@ -111,6 +111,8 @@ set fillchars+=stl:\ ,stlnc:\
 set encoding=utf8 "Use utf8 encoding
 set ffs=unix,dos,mac "Line ending preference
 
+set ruler
+
 " set nobackup "Don't create temporary files
 " set nowb "Don't make a backup before overwriting
 " set noswapfile "Don't make a swp file (contains info in case vim crashes, like undo-history)
