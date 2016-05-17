@@ -18,6 +18,7 @@ Plugin 'simnalamburt/vim-mundo'
 Plugin 'tomtom/quickfixsigns_vim'
 Plugin 'tpope/vim-speeddating'
 Plugin 'benekastah/neomake'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 
