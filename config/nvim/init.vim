@@ -15,7 +15,6 @@ Plugin 'Shougo/vimproc'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'simnalamburt/vim-mundo'
-Plugin 'imeckler/mote', {'rtp': 'vim'}
 Plugin 'tomtom/quickfixsigns_vim'
 Plugin 'benekastah/neomake'
 
