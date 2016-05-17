@@ -156,6 +156,8 @@ nnoremap <leader>cf :cfirst<cr>
 nnoremap <leader>cp :cprevious<cr>
 nnoremap <leader>cv :cnext<cr>
 
+noremap Y y$
+
 "Use <leader>f to open NERDTree
 "map <leader>f <ESC>:NERDTreeToggle<CR>
 
