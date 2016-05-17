@@ -17,7 +17,7 @@ Plugin 'neovimhaskell/haskell-vim'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'imeckler/mote', {'rtp': 'vim'}
 Plugin 'tomtom/quickfixsigns_vim'
-"Plugin 'scrooloose/syntastic'
+Plugin 'benekastah/neomake'
 
 call vundle#end()
 
@@ -68,24 +68,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
-"YCM options
-"let g:ycm_key_list_previous_completion=['<UP>', '<C-K>']
-"let g:ycm_key_list_select_completion=['<DOWN>', '<C-j>']
-"let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
-"let g:ycm_semantic_triggers = {'haskell' : ['.']}
-"let $PATH=$PATH . ':/home/xandaros/.cabal/bin'
-
-"Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_always_populate_loc_list = 0
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#max_menu_width = 50
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "dark"
