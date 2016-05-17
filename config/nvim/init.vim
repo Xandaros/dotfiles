@@ -19,6 +19,7 @@ Plugin 'tomtom/quickfixsigns_vim'
 Plugin 'tpope/vim-speeddating'
 Plugin 'benekastah/neomake'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
 
 call vundle#end()
 
