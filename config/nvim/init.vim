@@ -21,6 +21,7 @@ Plugin 'benekastah/neomake'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'christoomey/vim-sort-motion'
 
 call vundle#end()
 
