@@ -23,6 +23,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'wellle/targets.vim'
+Plugin 'Xandaros/grgen', {'rtp': 'syntaxhighlighting/vim/'}
 
 call vundle#end()
 
