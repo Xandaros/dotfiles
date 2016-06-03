@@ -15,7 +15,7 @@ Plugin 'Shougo/vimproc'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'simnalamburt/vim-mundo'
-Plugin 'tomtom/quickfixsigns_vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-speeddating'
 Plugin 'benekastah/neomake'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -71,6 +71,8 @@ set shiftwidth=4
 set undofile
 set undodir=~/.config/nvim/undo
 
+set updatetime=250
+
 "UltiSnip options
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -85,6 +87,9 @@ let g:airline_theme = "dark"
 
 "Eclim options
 "let g:EclimCompletionMethod = 'omnifunc'
+
+"CtrP
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 "LaTeX options
 let g:tex_flavor = "latex"
