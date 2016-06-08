@@ -24,6 +24,7 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'wellle/targets.vim'
 Plugin 'Xandaros/grgen', {'rtp': 'syntaxhighlighting/vim/'}
+Plugin 'myfreeweb/intero.nvim'
 
 call vundle#end()
 
