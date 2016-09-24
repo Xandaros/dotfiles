@@ -25,6 +25,7 @@ Plugin 'christoomey/vim-sort-motion'
 Plugin 'wellle/targets.vim'
 Plugin 'Xandaros/grgen', {'rtp': 'syntaxhighlighting/vim/'}
 Plugin 'myfreeweb/intero.nvim'
+Plugin 'klen/python-mode'
 
 call vundle#end()
 
@@ -85,6 +86,10 @@ let g:deoplete#max_menu_width = 50
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "dark"
+
+"Python stuff
+let g:pymode_lint_options_pylint = {'max-line-length': 120}
+let g:pymode_options_max_line_length = 120
 
 "Eclim options
 "let g:EclimCompletionMethod = 'omnifunc'
