@@ -12,7 +12,8 @@ Plugin 'eagletmt/ghcmod-vim' "Requires Shougo/vimproc
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'Shougo/vimproc'
-Plugin 'Shougo/deoplete.nvim'
+"Plugin 'Shougo/deoplete.nvim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'airblade/vim-gitgutter'
@@ -23,7 +24,6 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'wellle/targets.vim'
-Plugin 'Xandaros/grgen', {'rtp': 'syntaxhighlighting/vim/'}
 Plugin 'myfreeweb/intero.nvim'
 Plugin 'klen/python-mode'
 
@@ -40,7 +40,7 @@ set cursorline
 set nu
 set rnu
 
-set colorcolumn=81
+set colorcolumn=111
 
 nmap <f7> mz:silent make<cr>`z
 set ambiwidth=single
@@ -86,6 +86,17 @@ let g:deoplete#max_menu_width = 50
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "dark"
+
+"YCM options
+let g:ycm_key_list_previous_completion=['<C-K>']
+let g:ycm_key_list_select_completion=['<C-j>']
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:ycm_python_binary_path = "/usr/bin/python3"
+let $PATH=$PATH . ':/home/xandaros/.cabal/bin'
+
+"Neomake
+let g:neomake_python_enabled_makers = ['mypy', 'flake8']
 
 "Python stuff
 let g:pymode_lint_options_pylint = {'max-line-length': 120}
