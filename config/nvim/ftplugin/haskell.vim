@@ -3,7 +3,7 @@ let g:necoghc_enable_detailed_browse = 1
 let g:ghcmod_open_quickfix_function = "Noop"
 setlocal omnifunc=intero#omnifunc
 setlocal expandtab
-autocmd BufWritePost,BufRead *.hs Neomake
+autocmd BufWritePost *.hs Neomake
 
 let g:neomake_haskell_enabled_makers = ['ghcmod']
 let g:neomake_verbose = 0
