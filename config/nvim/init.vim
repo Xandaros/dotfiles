@@ -1,31 +1,37 @@
 filetype off
 
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_base_dir='/home/xandaros/.config/nvim/bundle/vimspector'
+
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'SirVer/UltiSnips'
-Plugin 'ervandew/matchem'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'eagletmt/ghcmod-vim' "Requires Shougo/vimproc
+"Plugin 'ervandew/matchem'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
-Plugin 'Shougo/vimproc'
-"Plugin 'Shougo/deoplete.nvim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'neovimhaskell/haskell-vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-speeddating'
-Plugin 'benekastah/neomake'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'benekastah/neomake'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'wellle/targets.vim'
-Plugin 'myfreeweb/intero.nvim'
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
+"Plugin 'dense-analysis/ale'
+Plugin 'mattn/emmet-vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'pangloss/vim-javascript'
+Plugin 'evanleck/vim-svelte'
+Plugin 'lervag/vimtex'
+Plugin 'puremourning/vimspector'
+Plugin 'teal-language/vim-teal'
 
 call vundle#end()
 
@@ -34,7 +40,7 @@ set history=10000
 filetype plugin on
 filetype indent on
 
-let mapleader = "-"
+let mapleader = " "
 
 set cursorline
 set nu
@@ -50,7 +56,7 @@ set t_ut=
 set hidden "Allows buffers to be hidden
 set wildmenu "Enables menu for auto completion
 set wildchar=<TAB>
-set wildmode=full
+set wildmode=longest:full,full
 
 "Search options
 set ignorecase
@@ -64,8 +70,8 @@ set magic
 
 set modeline
 
-set foldmethod=syntax
-set foldlevelstart=1
+" set foldmethod=syntax
+" set foldlevelstart=1
 
 set tabstop=4
 set shiftwidth=4
@@ -74,6 +80,8 @@ set undofile
 set undodir=~/.config/nvim/undo
 
 set updatetime=250
+
+set expandtab
 
 "UltiSnip options
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -93,7 +101,15 @@ let g:ycm_key_list_select_completion=['<C-j>']
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 let g:ycm_python_binary_path = "/usr/bin/python3"
+" Disable syntax checking from YCM - we have ALE for that
+let g:ycm_show_diagnostics_ui = 0
 let $PATH=$PATH . ':/home/xandaros/.cabal/bin'
+let g:ycm_language_server = [
+  \   { 'name': 'lua',
+  \     'filetypes': [ 'lua' ],
+  \     'cmdline': [ expand( '/usr/bin/lua-lsp' ) ]
+  \   }
+  \ ]
 
 "Neomake
 let g:neomake_python_enabled_makers = ['mypy', 'flake8']
@@ -110,6 +126,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 "LaTeX options
 let g:tex_flavor = "latex"
+
+"emmet
+let g:user_emmet_leader_key = ','
 
 "Disable beeps and flashes
 set noerrorbells
@@ -146,8 +165,8 @@ vnoremap <DOWN> <ESC>ddpv
 "Remal Ctrl+/h/j/k/l to move lines
 nmap <C-k> ddkP
 nmap <C-j> ddp
-imap <C-k> <ESC>ddkkpi
-imap <C-j> <ESC>ddpi
+"imap <C-k> <ESC>ddkkpi
+"imap <C-j> <ESC>ddpi
 vmap <C-k> <ESC>ddkkpv
 vmap <C-j> <ESC>ddpv
 
@@ -186,12 +205,54 @@ noremap Y y$
 
 noremap gV `[V`]
 
+"COC
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : coc#refresh()
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : coc#refresh()
+inoremap <expr> <C-Space> coc#refresh()
+
+nmap [g <Plug>(coc-diagnostic-prev)
+nmap ]g <Plug>(coc-diagnostic-next)
+nmap gd <Plug>(coc-definition)
+nmap gr <Plug>(coc-references)
+nmap gy <Plug>(coc-type-definition)
+nmap gi <Plug>(coc-implementation)
+map <C-1> <Plug>(coc-codeaction-cursor)
+nmap <leader>ca <Plug>(coc-codeaction-cursor)
+vmap <leader>ca <Plug>(coc-codeaction-selected)
+nmap <leader>cla <Plug>(coc-codelens-action)
+
+nmap <F2> <Plug>(coc-rename)
+imap <C-l> <Plug>(coc-snippets-expand)
+let g:coc_snippet_next = '<Tab>'
+let g:coc_snippet_prev = '<S-Tab>'
+
+nnoremap <silent> <leader><Space> :call CocAction("doHover")<CR>
+
+nmap <leader><F1> <Plug>VimspectorBalloonEval
+xmap <leader><F1> <Plug>VimspectorBalloonEval
+nmap <leader><BS> :call vimspector#DeleteWatch()<CR>
+
+let g:vimspector_sign_priority = {
+  \    'vimspectorBP':         13,
+  \    'vimspectorBPCond':     12,
+  \    'vimspectorBPDisabled': 11,
+  \    'vimspectorPC':         999,
+  \ }
+
+autocmd CursorHold * silent call CocActionAsync("highlight")
+
 "Use <leader>f to open NERDTree
 "map <leader>f <ESC>:NERDTreeToggle<CR>
 
-onoremap af :<C-u>normal! ggVG<CR>
+" Auto parens
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {; {<CR>};<ESC>O
+inoremap [<CR> [<CR>]<ESC>O
+inoremap [; [<CR>];<ESC>O
+inoremap (<CR> (<CR>)<ESC>O
+inoremap (; (<CR>);<ESC>O
 
-nnoremap <F5> :MundoToggle<CR>
+onoremap af :<C-u>normal! ggVG<CR>
 
 map ´ `
 command W w
@@ -199,3 +260,6 @@ command Wq wq
 command WQ wq
 
 command ClearLocList call setloclist(0, [])
+command EditVimrc edit ~/.config/nvim/init.vim
+
+autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"

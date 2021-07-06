@@ -1,0 +1,26 @@
+{
+    "rust-analyzer.diagnostics.enable": true,
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "h", "cc", "cpp", "c++"],
+            "rootPatterns": [".git/", ".ccls", "compile_commands.json"],
+            "initializationOptions": {
+                "directory": "/tmp/ccls"
+            }
+        },
+        "teal": {
+            "host":"127.0.0.1",
+            "port": 9527,
+            "filetypes": ["tl", "teal"],
+            "rootPatterns": [".git/"]
+        }
+    },
+    "diagnostic.enable": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "codeLens.enable": true,
+    "codeLens.subseparator": " | ",
+    "coc.preferences.formatOnSaveFiletypes": ["rust"],
+    "coc.preferences.maxFileSize": "10MB"
+}
