@@ -32,6 +32,7 @@ Plugin 'evanleck/vim-svelte'
 Plugin 'lervag/vimtex'
 Plugin 'puremourning/vimspector'
 Plugin 'teal-language/vim-teal'
+Plugin 'liuchengxu/vista.vim'
 
 call vundle#end()
 
