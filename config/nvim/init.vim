@@ -65,6 +65,7 @@ set ignorecase
 set smartcase "If and only if search contains uppercase characters, search case sensitive. Requires ignorecase
 set hlsearch "Highlight search results
 set incsearch "Start searching while typing
+set inccommand=nosplit "Preview substitutions, etc.
 
 set lazyredraw "Buffer screen updates. Makes scrolling a lot faster
 
