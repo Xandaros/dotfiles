@@ -33,6 +33,7 @@ Plugin 'lervag/vimtex'
 Plugin 'puremourning/vimspector'
 Plugin 'teal-language/vim-teal'
 Plugin 'liuchengxu/vista.vim'
+Plugin 'nvim-treesitter/nvim-treesitter'
 
 call vundle#end()
 
@@ -205,6 +206,15 @@ nnoremap <leader>cv :cnext<cr>
 noremap Y y$
 
 noremap gV `[V`]
+
+"Tree sitter
+lua <<EOF
+require('nvim-treesitter.configs').setup({
+    highlight = {
+        enable = true,
+    }
+})
+EOF
 
 "COC
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : coc#refresh()
