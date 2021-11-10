@@ -194,12 +194,12 @@ bindsym $mod+Shift+e mode "$mode_system"
 # }
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id playerctl volume 0.02+
-bindsym XF86AudioLowerVolume exec --no-startup-id playerctl volume 0.02-
+bindsym XF86AudioRaiseVolume exec --no-startup-id "playerctl --player %any,firefox volume 0.02+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "playerctl --player %any,firefox volume 0.02-"
 bindsym XF86AudioMute exec --no-startup-id playerctl $HOME/.local/bin/mute_media
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id "playerctl --player %any,firefox play-pause"
+bindsym XF86AudioNext exec --no-startup-id "playerctl --player %any,firefox next"
+bindsym XF86AudioPrev exec --no-startup-id "playerctl --player %any,firefox previous"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl up
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl down
 
