@@ -258,6 +258,7 @@ autocmd CursorHold * silent call CocActionAsync("highlight")
 " Auto parens
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {; {<CR>};<ESC>O
+inoremap {) {<CR>})<ESC>O
 inoremap [<CR> [<CR>]<ESC>O
 inoremap [; [<CR>];<ESC>O
 inoremap (<CR> (<CR>)<ESC>O
