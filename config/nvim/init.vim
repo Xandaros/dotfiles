@@ -19,7 +19,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'benekastah/neomake'
-Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'wellle/targets.vim'
@@ -34,6 +34,10 @@ Plugin 'puremourning/vimspector'
 Plugin 'teal-language/vim-teal'
 Plugin 'liuchengxu/vista.vim'
 Plugin 'nvim-treesitter/nvim-treesitter'
+Plugin 'machakann/vim-highlightedyank'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 
@@ -48,7 +52,7 @@ set cursorline
 set nu
 set rnu
 
-set colorcolumn=111
+set colorcolumn=121
 
 nmap <f7> mz:silent make<cr>`z
 set ambiwidth=single
@@ -131,7 +135,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:tex_flavor = "latex"
 
 "emmet
-let g:user_emmet_leader_key = ','
+"let g:user_emmet_leader_key = ','
 
 "Disable beeps and flashes
 set noerrorbells
@@ -243,6 +247,18 @@ nnoremap <silent> <leader><Space> :call CocAction("doHover")<CR>
 nmap <leader><F1> <Plug>VimspectorBalloonEval
 xmap <leader><F1> <Plug>VimspectorBalloonEval
 nmap <leader><BS> :call vimspector#DeleteWatch()<CR>
+
+nnoremap <leader>fc :Vista finder coc<CR>
+
+function! init#files()
+    let l:git_toplevel = get(systemlist('git rev-parse --show-toplevel 2>/dev/null'), 0, '')
+    call fzf#vim#files(l:git_toplevel, fzf#vim#with_preview({'options': ['-q!target ']}), 0)
+endfunction
+
+nnoremap <leader>ff :call init#files()<CR>
+
+nnoremap <C-p> :call init#files()<CR>
+
 
 let g:vimspector_sign_priority = {
   \    'vimspectorBP':         13,
