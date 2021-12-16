@@ -34,10 +34,12 @@ Plugin 'puremourning/vimspector'
 Plugin 'teal-language/vim-teal'
 Plugin 'liuchengxu/vista.vim'
 Plugin 'nvim-treesitter/nvim-treesitter'
+Plugin 'nvim-treesitter/nvim-treesitter-textobjects'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'cespare/vim-toml'
+Plugin 'Iron-E/nvim-libmodal'
 
 call vundle#end()
 
@@ -224,9 +226,58 @@ require('nvim-treesitter.configs').setup({
             node_incremental = "<M-j>",
             node_decremental = "<M-k>",
         }
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+                ["ab"] = "@block.outer",
+                ["ib"] = "@block.inner",
+            }
+        },
+        move = {
+            enable = true,
+        }
     }
 })
 EOF
+
+lua <<EOF
+    vim.api.nvim_set_var('libmodalTimeouts', true)
+    function moveTextObjects()
+        local libmodal = require('libmodal')
+        local fooModeRecurse = 0
+
+        function textobjectSwapMode()
+            local userInput = string.char(vim.api.nvim_get_var(
+                'textobjectSwapModeInput'
+            ))
+
+            if userInput == 'p' then
+                vim.api.nvim_command('TSTextobjectSwapNext @parameter.inner')
+            elseif userInput == 'P' then
+                vim.api.nvim_command('TSTextobjectSwapPrevious @parameter.inner')
+            elseif userInput == 'f' then
+                vim.api.nvim_command('TSTextobjectSwapNext @function.outer')
+            elseif userInput == 'F' then
+                vim.api.nvim_command('TSTextobjectSwapPrevious @function.outer')
+            elseif userInput == 'c' then
+                vim.api.nvim_command('TSTextobjectSwapNext @class.outer')
+            elseif userInput == 'C' then
+                vim.api.nvim_command('TSTextobjectSwapPrevious @class.outer')
+            end
+        end
+
+        libmodal.mode.enter('Textobject Swap', textobjectSwapMode)
+    end
+EOF
+
+nnoremap <leader>ts :lua moveTextObjects()<CR>
 
 "COC
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : coc#refresh()
