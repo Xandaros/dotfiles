@@ -217,6 +217,13 @@ lua <<EOF
 require('nvim-treesitter.configs').setup({
     highlight = {
         enable = true,
+    },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            node_incremental = "<M-j>",
+            node_decremental = "<M-k>",
+        }
     }
 })
 EOF
