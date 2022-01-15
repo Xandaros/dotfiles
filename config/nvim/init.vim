@@ -40,6 +40,7 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'Iron-E/nvim-libmodal'
+Plugin 'jmcantrell/vim-virtualenv'
 
 call vundle#end()
 
@@ -135,6 +136,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 "LaTeX options
 let g:tex_flavor = "latex"
+
+" Virtualenv
+let g:virtualenv_directory="."
 
 "emmet
 "let g:user_emmet_leader_key = ','
@@ -282,6 +286,8 @@ nnoremap <leader>ts :lua moveTextObjects()<CR>
 "COC
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : coc#refresh()
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : coc#refresh()
+inoremap <silent><expr> <C-l> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<C-l>\<c-r>=coc#on_enter()\<CR>"
 inoremap <expr> <C-Space> coc#refresh()
 
 nmap [g <Plug>(coc-diagnostic-prev)
@@ -296,7 +302,7 @@ vmap <leader>ca <Plug>(coc-codeaction-selected)
 nmap <leader>cla <Plug>(coc-codelens-action)
 
 nmap <F2> <Plug>(coc-rename)
-imap <C-l> <Plug>(coc-snippets-expand)
+" imap <C-l> <Plug>(coc-snippets-expand)
 let g:coc_snippet_next = '<Tab>'
 let g:coc_snippet_prev = '<S-Tab>'
 

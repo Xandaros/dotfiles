@@ -6,3 +6,5 @@ function! MakeFString()
 endfunction
 command! MakeFString call MakeFString()
 nnoremap <leader>f :MakeFString<CR>
+
+silent! VirtualEnvActivate venv

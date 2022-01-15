@@ -25,5 +25,7 @@
     "coc.preferences.maxFileSize": "10MB",
     "signature.hideOnTextChange": false,
     "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true
+    "python.linting.flake8Enabled": true,
+    "suggest.languageSourcePriority": 99,
+    "suggest.defaultSortMethod": "length"
 }
