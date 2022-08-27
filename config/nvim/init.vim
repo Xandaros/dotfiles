@@ -34,6 +34,7 @@ Plugin 'puremourning/vimspector'
 Plugin 'teal-language/vim-teal'
 Plugin 'liuchengxu/vista.vim'
 Plugin 'nvim-treesitter/nvim-treesitter'
+Plugin 'nvim-treesitter/playground'
 Plugin 'nvim-treesitter/nvim-treesitter-textobjects'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -141,7 +142,7 @@ let g:tex_flavor = "latex"
 let g:virtualenv_directory="."
 
 "emmet
-"let g:user_emmet_leader_key = ','
+let g:user_emmet_leader_key = '<C-z>'
 
 "Disable beeps and flashes
 set noerrorbells
@@ -178,8 +179,6 @@ vnoremap <DOWN> <ESC>ddpv
 "Remal Ctrl+/h/j/k/l to move lines
 nmap <C-k> ddkP
 nmap <C-j> ddp
-"imap <C-k> <ESC>ddkkpi
-"imap <C-j> <ESC>ddpi
 vmap <C-k> <ESC>ddkkpv
 vmap <C-j> <ESC>ddpv
 
@@ -247,7 +246,12 @@ require('nvim-treesitter.configs').setup({
         move = {
             enable = true,
         }
-    }
+    },
+    query_linter = {
+        enable = true,
+        use_virtual_text = true,
+        lint_events = {"BufWrite", "CursorHold"},
+    },
 })
 EOF
 
@@ -284,9 +288,9 @@ EOF
 nnoremap <leader>ts :lua moveTextObjects()<CR>
 
 "COC
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : coc#refresh()
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : coc#refresh()
-inoremap <silent><expr> <C-l> pumvisible() ? coc#_select_confirm() : 
+inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
+inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : coc#refresh()
+inoremap <silent><expr> <C-l> coc#pum#visible() ? coc#_select_confirm() : 
                                            \"\<C-g>u\<C-l>\<c-r>=coc#on_enter()\<CR>"
 inoremap <expr> <C-Space> coc#refresh()
 
