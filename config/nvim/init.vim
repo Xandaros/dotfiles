@@ -26,11 +26,11 @@ Plugin 'wellle/targets.vim'
 "Plugin 'klen/python-mode'
 "Plugin 'dense-analysis/ale'
 Plugin 'mattn/emmet-vim'
-Plugin 'lepture/vim-jinja'
 Plugin 'pangloss/vim-javascript'
 Plugin 'evanleck/vim-svelte'
 Plugin 'lervag/vimtex'
 Plugin 'puremourning/vimspector'
+Plugin 'sagi-z/vimspectorpy'
 Plugin 'teal-language/vim-teal'
 Plugin 'liuchengxu/vista.vim'
 Plugin 'nvim-treesitter/nvim-treesitter'
@@ -219,13 +219,23 @@ noremap gV `[V`]
 
 "Tree sitter
 lua <<EOF
+require('nvim-treesitter').define_modules ({
+    autoclose_fold = {
+        module_path = "autoclose_fold"
+    }
+})
+
 require('nvim-treesitter.configs').setup({
     highlight = {
         enable = true,
     },
+    autoclose_fold = {
+        enable = false
+    },
     incremental_selection = {
         enable = true,
         keymaps = {
+            init_selection = "<M-j>",
             node_incremental = "<M-j>",
             node_decremental = "<M-k>",
         }
@@ -254,6 +264,10 @@ require('nvim-treesitter.configs').setup({
     },
 })
 EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevelstart=99
 
 lua <<EOF
     vim.api.nvim_set_var('libmodalTimeouts', true)
@@ -317,6 +331,8 @@ xmap <leader><F1> <Plug>VimspectorBalloonEval
 nmap <leader><BS> :call vimspector#DeleteWatch()<CR>
 
 nnoremap <leader>fc :Vista finder coc<CR>
+
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 function! init#files()
     let l:git_toplevel = get(systemlist('git rev-parse --show-toplevel 2>/dev/null'), 0, '')
